@@ -1,0 +1,3 @@
+rootProject.name = 'TodoReactNativeExperiment'
+
+include ':app'
