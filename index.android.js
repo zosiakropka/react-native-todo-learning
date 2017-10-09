@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 
-import App from './src/App';
+import App from './src/App'
 
 export default class TodoReactNativeExperiment extends Component {
-  render() {
+  render () {
     return (
       <App />
-    );
+    )
   }
 }
 
-AppRegistry.registerComponent('TodoReactNativeExperiment', () => TodoReactNativeExperiment);
+AppRegistry.registerComponent('TodoReactNativeExperiment', () => TodoReactNativeExperiment)
