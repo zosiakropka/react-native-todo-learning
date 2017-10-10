@@ -7,7 +7,7 @@ const TodoItem = ({ text, completed, onClick }) => {
 
   return (
     <View onClick={onClick}>
-      <Button title={prefix + ' ' + text} onPress={ onClick }/>
+      <Button title={prefix + ' ' + text} onPress={onClick} />
     </View>
   )
 }
