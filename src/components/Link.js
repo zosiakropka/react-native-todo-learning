@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Button } from 'react-native'
+import { Text, TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
 
 const Link = ({children, active, onClick}) => {
@@ -8,7 +8,11 @@ const Link = ({children, active, onClick}) => {
   }
 
   return (
-    <Button onPress={() => onClick()} title={children} />
+    <TouchableHighlight onPress={() => onClick()}>
+      <Text>
+        {children}
+      </Text>
+    </TouchableHighlight>
   )
 }
 
