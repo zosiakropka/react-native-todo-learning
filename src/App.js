@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
-import {
-} from 'react-native'
+import { View } from 'react-native'
+import { Provider } from 'react-redux'
+import reduxStore from './reduxStore'
 
-import TodoList from './components/TodoList'
+import StatusBarBackground from './components/StatusBarBackground'
+import Footer from './components/Footer'
+import VisibleTodoList from './containers/VisibleTodoList'
+import AddTodoItem from './containers/AddTodoItem'
 
 export default class App extends Component {
   render () {
     return (
-      <TodoList />
+      <Provider store={reduxStore}>
+        <View>
+          <StatusBarBackground />
+          <AddTodoItem />
+          <VisibleTodoList />
+          <Footer />
+        </View>
+      </Provider>
     )
   }
 }

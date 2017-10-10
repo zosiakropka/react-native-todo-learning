@@ -1,26 +1,32 @@
-import React, { Component } from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { View } from 'react-native'
 
-import styles from './styles';
+import TodoItem from './TodoItem'
 
-export default class TodoList extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
+const TodoList = ({todos, onTodoItemClick}) => (
+  <View>
+    {
+      todos.map(todo => (
+        <TodoItem
+          key={todo.id}
+          completed={todo.completed}
+          text={todo.text}
+          onClick={() => onTodoItemClick(todo.id)} />
+      ))
+    }
+  </View>
+)
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      completed: PropTypes.bool.isRequired,
+      text: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
+  onTodoItemClick: PropTypes.func.isRequired
 }
+
+export default TodoList
