@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions'
-import Link from '../components/Link'
+import Link from '../components/ui/tab/Tab'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -16,9 +16,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const FilterLink = connect(
+const FilterTab = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Link)
 
-export default FilterLink
+export default FilterTab

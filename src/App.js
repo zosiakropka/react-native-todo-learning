@@ -7,12 +7,13 @@ import StatusBarBackground from './components/StatusBarBackground'
 import Footer from './components/Footer'
 import VisibleTodoList from './containers/VisibleTodoList'
 import AddTodoItem from './containers/AddTodoItem'
+import { SCREEN_STYLE } from './styles/screen'
 
 export default class App extends Component {
   render () {
     return (
       <Provider store={reduxStore}>
-        <View>
+        <View style={SCREEN_STYLE}>
           <StatusBarBackground />
           <AddTodoItem />
           <VisibleTodoList />
