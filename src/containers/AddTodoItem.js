@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Form from 'react-native-form'
-import { View, TextInput, Button } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { addTodo } from '../actions'
+import BasicButton from '../components/ui/button/BasicButton'
+import Input from '../components/ui/input/Input'
 
 class AddTodoItem extends Component {
   constructor ({dispatch}) {
@@ -16,13 +18,13 @@ class AddTodoItem extends Component {
     return (
       <View>
         <Form>
-          <TextInput
+          <Input
             value={this.state.todoItemValue}
             placeholder={'Type "Go shopping"'}
             onChangeText={(todoItemValue) => this.setState({todoItemValue})} />
-          <Button
-            title='Add TODO'
-            onPress={() => { this.onSubmit() }} />
+          <BasicButton onPress={() => { this.onSubmit() }} type={'NEUTRAL'}>
+            Add a TODO
+          </BasicButton>
         </Form>
       </View>
     )

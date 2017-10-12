@@ -12,6 +12,7 @@ const TodoList = ({todos, onTodoItemClick}) => (
           key={todo.id}
           completed={todo.completed}
           text={todo.text}
+          imageSource={todo.imageSource}
           onClick={() => onTodoItemClick(todo.id)} />
       ))
     }

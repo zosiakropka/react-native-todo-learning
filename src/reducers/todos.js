@@ -3,6 +3,8 @@ import {
   TOGGLE_TODO
 } from '../actions'
 
+import getRandomImageSource from '../utils/getRandomImageSource'
+
 function todos (state = [], action) {
   switch (action.type) {
     case ADD_TODO:
@@ -12,6 +14,7 @@ function todos (state = [], action) {
         {
           id: Date.now(),
           text: action.text,
+          imageSource: getRandomImageSource(),
           completed: false
         }
       ]

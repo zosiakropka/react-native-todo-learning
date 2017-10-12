@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { Provider } from 'react-redux'
 import reduxStore from './reduxStore'
 
-import StatusBarBackground from './components/StatusBarBackground'
+import StatusBarBackground from './components/ui/StatusBarBackground'
 import Footer from './components/Footer'
 import VisibleTodoList from './containers/VisibleTodoList'
 import AddTodoItem from './containers/AddTodoItem'
