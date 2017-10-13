@@ -3,7 +3,7 @@ import {Animated} from 'react-native'
 
 const ANIMATION_INITIAL_VALUE = 0
 const ANIMATION_ADDED_VALUE = 1
-const ANIMATION_DURATION_MS = 250
+const ANIMATION_DURATION_MS = 150
 
 const getStylesForAnimation = (animation) => ([
   {
