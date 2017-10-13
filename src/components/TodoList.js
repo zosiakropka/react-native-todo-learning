@@ -4,17 +4,19 @@ import { FlatList } from 'react-native'
 
 import TodoItem from './TodoItem'
 
+const renderTodoItem = ({item, onTodoItemClick}) => (
+  <TodoItem
+    key={item.key}
+    completed={item.completed}
+    text={item.text}
+    imageSource={item.imageSource}
+    onClick={() => onTodoItemClick(item.id)} />
+)
+
 const TodoList = ({todos, onTodoItemClick}) => (
   <FlatList
-    data={todos}
-    renderItem={({item}) => (
-      <TodoItem
-        key={item.id}
-        completed={item.completed}
-        text={item.text}
-        imageSource={item.imageSource}
-        onClick={() => onTodoItemClick(item.id)} />
-    )} />
+    data={todos.map((todo) => ({...todo, key: todo.id}))}
+    renderItem={({item}) => renderTodoItem({item, onTodoItemClick})} />
 )
 
 TodoList.propTypes = {

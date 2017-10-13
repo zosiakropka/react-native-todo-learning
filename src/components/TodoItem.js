@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ButtonWithImageBackground from './ui/ButtonWithImageBackground'
 
 const TodoItem = ({ text, completed, imageSource, onClick }) => {
-  let prefix = completed ? 'COMPLETED' : 'NOT COMPLETED'
+  let prefix = completed ? '+' : '-'
 
   return (
     <ButtonWithImageBackground onClick={onClick} backgroundSource={imageSource}>

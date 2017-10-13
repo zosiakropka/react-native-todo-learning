@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Form from 'react-native-form'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { addTodo } from '../actions'
@@ -15,15 +15,18 @@ class AddTodoItem extends Component {
 
   render () {
     return (
-      <Form>
+      <View style={{padding: 20}}>
         <Input
+          style={{marginBottom: 20}}
           value={this.state.todoItemValue}
           placeholder={'Type "Go shopping"'}
           onChangeText={(todoItemValue) => this.setState({todoItemValue})} />
-        <BasicButton onPress={() => { this.onSubmit() }} type={'NEUTRAL'}>
+        <BasicButton
+          onPress={() => { this.onSubmit() }}
+          type={'NEUTRAL'}>
           Add a TODO
         </BasicButton>
-      </Form>
+      </View>
     )
   }
 
