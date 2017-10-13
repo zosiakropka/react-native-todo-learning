@@ -15,7 +15,7 @@ export const BUTTON_STYLES = {
 
 export const BUTTON_TEXT_STYLES = {
   DEFAULT: {
-    textColor: COLOR_PALETTE.WHITE
+    color: COLOR_PALETTE.WHITE
   }
 }
 

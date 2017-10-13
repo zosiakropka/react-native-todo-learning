@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import { Text, TouchableHighlight } from 'react-native'
 
-import { BUTTON_TYPES, BUTTON_STYLES } from '../../../styles/buttons'
+import { BUTTON_TYPES, BUTTON_STYLES, BUTTON_TEXT_STYLES } from '../../../styles/buttons'
 
 const BasicButton = ({children, onPress, type}) => (
   <TouchableHighlight onPress={onPress} style={BUTTON_STYLES[type]}>
-    <Text>
+    <Text style={BUTTON_TEXT_STYLES.DEFAULT}>
       {children}
     </Text>
   </TouchableHighlight>
