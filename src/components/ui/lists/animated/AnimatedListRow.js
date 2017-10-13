@@ -3,11 +3,14 @@ import {Animated} from 'react-native'
 
 const ANIMATION_INITIAL_VALUE = 0
 const ANIMATION_ADDED_VALUE = 1
-const ANIMATION_DURATION_MS = 1000
+const ANIMATION_DURATION_MS = 250
 
 const getStylesForAnimation = (animation) => ([
   {
-    opacity: animation
+    opacity: animation,
+    transform: [{
+      scaleY: animation
+    }]
   }
 ])
 
