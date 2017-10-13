@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlatList } from 'react-native'
 
 import TodoItem from './TodoItem'
+import AnimatedList from './ui/lists/animated/AnimatedList'
 
 const renderTodoItem = ({item, onTodoItemClick}) => (
   <TodoItem
@@ -14,7 +14,7 @@ const renderTodoItem = ({item, onTodoItemClick}) => (
 )
 
 const TodoList = ({todos, onTodoItemClick}) => (
-  <FlatList
+  <AnimatedList
     data={todos.map((todo) => ({...todo, key: todo.id}))}
     renderItem={({item}) => renderTodoItem({item, onTodoItemClick})} />
 )
