@@ -17,7 +17,7 @@ const styles = {
   text: {
     color: 'white',
     textShadowColor: 'black',
-    textShadowRadius: 10,
+    textShadowRadius: 3,
     textShadowOffset: {
       width: 0,
       height: 0
@@ -50,7 +50,6 @@ export default class ButtonWithImageBackground extends Component {
           blurRadius={this.getBlurRadius()} />
         <View style={{...styles.absoluteView, ...styles.withPadding}}>
           <Text
-            textShadowRadius={4}
             numberOfLines={2}
             style={styles.text}>
             {children}
