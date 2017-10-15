@@ -1,6 +1,7 @@
 import {
   ADD_TODO,
-  TOGGLE_TODO
+  TOGGLE_TODO,
+  REMOVE_TODO
 } from '../actions'
 
 import getRandomImageSource from '../utils/getRandomImageSource'
@@ -31,6 +32,10 @@ function todos (state = [], action) {
 
         return {...todo}
       })
+
+    case REMOVE_TODO:
+      const removedId = action.id
+      return state.filter((todo) => (todo.id !== removedId))
 
     default:
       return state

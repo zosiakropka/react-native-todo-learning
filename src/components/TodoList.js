@@ -4,19 +4,20 @@ import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 import AnimatedList from './ui/lists/AnimatedList'
 
-const renderTodoItem = ({item, onTodoItemClick}) => (
+const renderTodoItem = ({item, onTodoItemClick, onTodoItemSwipe}) => (
   <TodoItem
     key={item.key}
     completed={item.completed}
     text={item.text}
     imageSource={item.imageSource}
-    onClick={() => onTodoItemClick(item.id)} />
+    onClick={() => onTodoItemClick(item.id)}
+    onSwipe={() => onTodoItemSwipe(item.id)} />
 )
 
-const TodoList = ({todos, onTodoItemClick}) => (
+const TodoList = ({todos, onTodoItemClick, onTodoItemSwipe}) => (
   <AnimatedList
     data={todos.map((todo) => ({...todo, key: todo.id}))}
-    renderItem={({item}) => renderTodoItem({item, onTodoItemClick})} />
+    renderItem={({item}) => renderTodoItem({item, onTodoItemClick, onTodoItemSwipe})} />
 )
 
 TodoList.propTypes = {

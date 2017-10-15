@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
+export const REMOVE_TODO = 'REMOVE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export const VISIBILITY_FILTERS = {
@@ -14,6 +15,10 @@ export function addTodo (text) {
 
 export function toggleTodo (id) {
   return { type: TOGGLE_TODO, id }
+}
+
+export function removeTodo (id) {
+  return { type: REMOVE_TODO, id }
 }
 
 export function setVisibilityFilter (filter) {
