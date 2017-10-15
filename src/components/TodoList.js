@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import TodoItem from './TodoItem'
-import AnimatedList from './ui/lists/animated/AnimatedList'
+import AnimatedList from './ui/lists/AnimatedList'
 
 const renderTodoItem = ({item, onTodoItemClick}) => (
   <TodoItem
@@ -22,7 +22,7 @@ const TodoList = ({todos, onTodoItemClick}) => (
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.any.isRequired,
       completed: PropTypes.bool.isRequired,
       text: PropTypes.string.isRequired
     }).isRequired

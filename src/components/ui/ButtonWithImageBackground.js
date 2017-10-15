@@ -1,11 +1,7 @@
 import React, { PropTypes, Component } from 'react'
-import { TouchableOpacity, Image, View, Text, Animated } from 'react-native'
+import { TouchableOpacity, Image, View, Text } from 'react-native'
 
 import { FLEX_1_STYLE, ABSOLUTE_VIEW_STYLE } from '../../styles/generic'
-
-const ANIMATION_INITIAL_VALUE = 0
-const ANIMATION_FINAL_VALUE = 1
-const ANIMATION_DURATION_MS = 150
 
 const styles = {
   absoluteView: {
@@ -33,13 +29,10 @@ const styles = {
 }
 
 export default class ButtonWithImageBackground extends Component {
-  animation = new Animated.Value(ANIMATION_INITIAL_VALUE)
-
-  componentDidMount () {
-    Animated.timing(this.animation, {
-      toValue: ANIMATION_FINAL_VALUE,
-      duration: ANIMATION_DURATION_MS
-    })
+  getBlurRadius () {
+    return this.props.shouldBlur
+      ? 20
+      : 0
   }
 
   render () {
@@ -53,7 +46,8 @@ export default class ButtonWithImageBackground extends Component {
           style={FLEX_1_STYLE}
           alignSelf={'stretch'}
           width={undefined}
-          height={undefined} />
+          height={undefined}
+          blurRadius={this.getBlurRadius()} />
         <View style={{...styles.absoluteView, ...styles.withPadding}}>
           <Text
             textShadowRadius={4}
@@ -64,13 +58,6 @@ export default class ButtonWithImageBackground extends Component {
         </View>
       </TouchableOpacity>
     )
-  }
-
-  componentWillUnmount () {
-    Animated.timing(this.animation, {
-      toValue: ANIMATION_INITIAL_VALUE,
-      duration: ANIMATION_DURATION_MS
-    })
   }
 }
 

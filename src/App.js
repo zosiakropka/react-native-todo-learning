@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import reduxStore from './reduxStore'
 
 import StatusBarBackground from './components/ui/StatusBarBackground'
+import WithHeaderAndFooter from './components/ui/layouts/WithHeaderAndFooter'
 import Footer from './components/Footer'
 import VisibleTodoList from './containers/VisibleTodoList'
 import AddTodoItem from './containers/AddTodoItem'
@@ -15,9 +16,12 @@ export default class App extends Component {
       <Provider store={reduxStore}>
         <View style={SCREEN_STYLE}>
           <StatusBarBackground />
-          <AddTodoItem />
-          <VisibleTodoList />
-          <Footer />
+          <WithHeaderAndFooter
+            header={<View />}
+            footer={<Footer />}>
+            <AddTodoItem />
+            <VisibleTodoList />
+          </WithHeaderAndFooter>
         </View>
       </Provider>
     )

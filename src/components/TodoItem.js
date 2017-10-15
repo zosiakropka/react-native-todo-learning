@@ -7,7 +7,7 @@ const TodoItem = ({ text, completed, imageSource, onClick }) => {
   let prefix = completed ? '+' : '-'
 
   return (
-    <ButtonWithImageBackground onClick={onClick} backgroundSource={imageSource}>
+    <ButtonWithImageBackground onClick={onClick} backgroundSource={imageSource} shouldBlur={completed}>
       {`${prefix} ${text}`}
     </ButtonWithImageBackground>
   )
