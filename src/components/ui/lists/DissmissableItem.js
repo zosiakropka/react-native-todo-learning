@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Animated, PanResponder } from 'react-native'
 
-const VELOCITY_TRESHOLD = 0.2
+const VELOCITY_TRESHOLD = 0.4
 
 export default class DismissableItem extends Component {
   constructor (props) {
     super(props)
     this.state = {
       translateXAnimated: new Animated.Value(0),
-      opacityAnimated: new Animated.Value(1)
+      opacityAnimated: new Animated.Value(0)
     }
 
     this._panResponder = PanResponder.create({
@@ -26,14 +26,14 @@ export default class DismissableItem extends Component {
 
   onDismissReleased ({vx}) {
     if (vx < VELOCITY_TRESHOLD) {
-      this.cancelDismiss()
+      this.dismissWillBeCancelled()
       return
     }
 
     this.performDismiss()
   }
 
-  cancelDismiss () {
+  dismissWillBeCancelled () {
     Animated.spring(
       this.state.translateXAnimated,
       {toValue: 0}
@@ -41,34 +41,31 @@ export default class DismissableItem extends Component {
   }
 
   performDismiss () {
-    Animated.parallel([
-      Animated.spring(
-        this.state.translateXAnimated,
-        {toValue: this.state.width}
-      ),
-      Animated.spring(
-        this.state.opacityAnimated,
-        {toValue: 0}
-      )
-    ]).start(() => { this.onDismiss() })
+    Animated.spring(
+      this.state.translateXAnimated,
+      {toValue: this.state.width}
+    ).start(() => { this.itemWasDismissed() })
   }
 
-  onDismiss () {
+  itemWasDismissed () {
     const {onDismiss} = this.props
     onDismiss && onDismiss()
   }
 
-  onLayout (event) {
-    const width = event.nativeEvent.layout.width
+  componentWidthIsKnown (width) {
     this.setState({
-      width: width
+      width: width,
+      opacityAnimated: this.state.translateXAnimated.interpolate({
+        inputRange: [0, width],
+        outputRange: [1, 0]
+      })
     })
   }
 
   render () {
     return (
       <Animated.View
-        onLayout={(event) => this.onLayout(event)}
+        onLayout={(event) => this.componentWidthIsKnown(event.nativeEvent.layout.width)}
         style={{
           transform: [
               {translateX: this.state.translateXAnimated}
