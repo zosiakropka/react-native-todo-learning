@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
     onTodoItemClick: id => {
       dispatch(toggleTodo(id))
     },
-    onTodoItemSwipe: id => {
+    onTodoItemDismiss: id => {
       dispatch(removeTodo(id))
     }
   }
